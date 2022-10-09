@@ -10,7 +10,7 @@ import requests
 BASE_URL = 'http://34.241.87.71:8081/'
 POST_API_KEY = 'AC8tQF4YAqgne8G90PVlWKxUv48veTmpsYOyHUfMpQDRXlkhlJ9Alsp7nzIKd5Dghumy7fTFheCAVggc3MqFbo90h31Uv81bn6XgxLzCMh70lIuXoiRs591HR1ynrKKj'
 
-logging.basicConfig(level=logging.DEBUG, filename="message.log", filemode="a+",
+logging.basicConfig(level=logging.INFO, filename="message.log", filemode="a+",
                     format="%(asctime)-15s %(levelname)-8s %(message)s")
 
 
