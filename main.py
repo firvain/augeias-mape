@@ -20,11 +20,12 @@ def db_listen():
 
     conn = psycopg.connect('postgresql://augeias:augeias@83.212.19.17:5432/augeias', autocommit=True)
 
-    conn.execute("LISTEN accuweather_mape_changed")
+    conn.execute("LISTEN accuweather_changed")
     conn.execute("LISTEN openweather_mape_changed")
 
     gen = conn.notifies()
     for notify in gen:
+        print(notify)
         if not notify.payload:
             break
         payload = json.loads(notify.payload)
@@ -42,6 +43,7 @@ def db_listen():
                 url = f'{BASE_URL}{table_name}'
 
                 data = json.loads(json.dumps(value))
+
                 try:
                     r = requests.post(headers={'apikey': POST_API_KEY},
                                       url=url, json=data)
